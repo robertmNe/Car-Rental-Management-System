@@ -65,7 +65,7 @@ void Company::removeCar(int id){
             count --;
 
             cout << "The car with the following ID was removed: " << id << endl;
-        
+            return;
         }
     }
     cout << "Cannot remove the following car: "<< id << endl;
