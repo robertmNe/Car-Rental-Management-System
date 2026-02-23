@@ -16,7 +16,7 @@ class Rental {
   public:
         Rental();
         Rental(Car* c, const string& rDate, int days);
-        Rental(const Rental& other)
+        Rental(const Rental& other);
         ~Rental();
 
         Car*   getCar()        const;
