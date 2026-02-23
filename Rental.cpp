@@ -49,7 +49,7 @@ bool Rental::isReturned() const {
 
 void Rental::returnCar(const string& retDate) {
     returnDate = retDate;
-    if (car) car->setAvailable(true);
+    if (car) car->setIsAvailable(true);
 }
 
 double Rental::getCost() const {
@@ -59,7 +59,7 @@ double Rental::getCost() const {
 
 void Rental::print() const {
     cout << "  Rental Details:" << endl;
-    cout << "Car ID: " << (car ? to_string(car->getCarID()) : "N/A") << endl;
+    cout << "Car ID: " << (car ? to_string(car->getIdentification()) : "N/A") << endl;
     cout << "Car Type: " << (car ? car->getType() : "N/A") << endl;
     cout << "Rental Date: " << rentalDate << endl;
     cout << "Num Days: " << numDays << endl;
