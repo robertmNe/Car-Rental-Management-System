@@ -60,10 +60,10 @@ string Customer::getTelephone() const { return telephone; }
 int Customer::getRentalCount() const { return rentalCount; }
 
 bool Customer::rentCar(Car* car, const string& rentalDate, int numDays) {
-    if (car != nullptr && car->getAvailability() && rentalCount < MAX_RENTALS) {
+    if (car != nullptr && car->getIsAvailable() && rentalCount < MAX_RENTALS) {
         rentals[rentalCount] = new Rental(car, rentalDate, numDays);
         rentalCount++;
-        car->setAvailability(false);
+        car->setIsAvailable(false);
         return true;
     }
     return false;
@@ -71,7 +71,7 @@ bool Customer::rentCar(Car* car, const string& rentalDate, int numDays) {
 
 bool Customer::returnCar(int carID, const string& returnDate) {
     for (int i = 0; i < rentalCount; i++) {
-        if (rentals[i]->getCar()->getId() == carID) {
+        if (rentals[i]->getCar()->getIdentification() == carID) {
             rentals[i]->getCar()->setAvailability(true);
             return true;
         }
